@@ -1,0 +1,35 @@
+%\usepackage{beramono} %Uncomment for IDE-style code font
+%\usepackage{inconsolata} %Uncomment for scientific style code font
+
+%Codeverzeichnis
+\renewcommand*{\lstlistingname}{Code}
+\renewcommand*{\lstlistlistingname}{Codeverzeichnis}
+
+%Sprachdefinition Kotlin (Beispiel)
+\lstdefinelanguage{Kotlin} {
+    morekeywords={abstract, actual, as, as?, break, by, class, companion, continue, data, do, dynamic, else, enum, expect, false, final, for, fun, get, if, import, in, interface, internal, is, null, object, override, package, private, public, return, set, super, suspend, this, throw, true, try, typealias, val, var, vararg, when, where, while},
+    morestring=[b]",
+    morestring=[b]',
+    morecomment=[l]{*},
+    morecomment=[s]{/*}{*/}
+}
+
+\definecolor{dkgreen}{RGB}{0, 100, 0}
+
+\lstset{frame=tb,
+    language=Kotlin,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\small\ttfamily,
+    keywordstyle=\textcolor{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\textcolor{red},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3,
+    captionpos=b
+}

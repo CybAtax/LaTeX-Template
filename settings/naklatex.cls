@@ -1,0 +1,82 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{naklatex}
+
+\LoadClass[
+	oneside,
+	bibliography=totoc,
+	index=totoc,
+	listof=totoc,
+	fontsize=12pt,
+	headings=small,
+	parskip=half
+]{scrbook}
+
+\RequirePackage{scrhack} % package for compatibility with listings
+\RequirePackage{listings} % code formatting
+\RequirePackage{xstring} % string comparison (transfermodule course of study)
+\RequirePackage[ngerman]{babel} % deutsches Sprachpaket
+\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+\RequirePackage[utf8]{inputenc} % utf8 Support
+\RequirePackage{stmaryrd}
+\RequirePackage[babel, german=quotes]{csquotes}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern} % Gerenderte Schrift
+\RequirePackage{microtype}
+\RequirePackage{eurosym} % Euro Symbol
+\RequirePackage{pdfpages}
+\RequirePackage{tabularx}
+
+\usepackage{tabulary} %for custom table in the first page
+\usepackage{colortbl}
+\usepackage{etoolbox}
+
+\RequirePackage{cover/titlepage}
+\RequirePackage{latexsym}
+
+%for custom scripts f.e. filling colors.. https://tex.stackexchange.com/questions/83992/how-to-create-and-include-tikz-files-in-your-manuscript
+%Tikz-Import
+\RequirePackage{tikz}
+\usetikzlibrary{fadings}
+
+%pdf im text
+\RequirePackage{pdfpages}
+\RequirePackage[export]{adjustbox}
+
+%load hyperref last but before glossaries
+\RequirePackage[hyphens]{url} %break urls
+\RequirePackage[hidelinks]{hyperref}
+\hypersetup{bookmarksnumbered}
+
+\RequirePackage[automake,nonumberlist,acronym,toc]{glossaries}
+\makeglossaries
+
+% Options
+\DeclareOption{transfermodule}{
+	\newcommand*{\studyprogramme} {
+		\IfStrEqCase{\StudyProgrammeCharacter} {
+			{A}{Angewandte Informatik}
+			{B}{Betriebswirtschaftslehre}
+			{I}{Wirtschaftsinformatik}
+			{W}{Wirtschaftsingenieurswesen}
+		}[Unbekannter Studiengang]
+	}
+	\newcommand*{\transfermodulenumber}[1]{\gdef\@transfermodulenumber{#1}}
+	\newcommand*{\studentnumber}[1]{\gdef\@studentnumber{#1}}
+	\newcommand*{\class}[1]{
+		\gdef\@class{#1}
+		\StrLeft{#1}{1}[\StudyProgrammeCharacter]
+	}
+	\subject{Transferleistung \@transfermodulenumber}
+	\date{}
+	\author{\@studentnumber \\\studyprogramme, \@class}
+	\ihead*{\includegraphics[height=20pt]{image/transferleistung}}
+}
+\DeclareOption{paper}{
+}
+\ProcessOptions\relax
+
+\input{settings/page}
+
+\input{settings/image}
+\input{settings/codestyle}
+
