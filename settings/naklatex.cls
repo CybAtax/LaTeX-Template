@@ -23,14 +23,12 @@
 \RequirePackage{lmodern} % Gerenderte Schrift
 \RequirePackage{microtype}
 \RequirePackage{eurosym} % Euro Symbol
-\RequirePackage{pdfpages}
 \RequirePackage{tabularx}
 
 \usepackage{tabulary} %for custom table in the first page
 \usepackage{colortbl}
 \usepackage{etoolbox}
 
-\RequirePackage{cover/titlepage}
 \RequirePackage{latexsym}
 
 %for custom scripts f.e. filling colors.. https://tex.stackexchange.com/questions/83992/how-to-create-and-include-tikz-files-in-your-manuscript
@@ -54,10 +52,10 @@
 \DeclareOption{transfermodule}{
 	\newcommand*{\studyprogramme} {
 		\IfStrEqCase{\StudyProgrammeCharacter} {
-			{A}{Angewandte Informatik}
-			{B}{Betriebswirtschaftslehre}
-			{I}{Wirtschaftsinformatik}
-			{W}{Wirtschaftsingenieurswesen}
+				{A}{Angewandte Informatik}
+				{B}{Betriebswirtschaftslehre}
+				{I}{Wirtschaftsinformatik}
+				{W}{Wirtschaftsingenieurswesen}
 		}[Unbekannter Studiengang]
 	}
 	\newcommand*{\transfermodulenumber}[1]{\gdef\@transfermodulenumber{#1}}
@@ -69,7 +67,6 @@
 	\subject{Transferleistung \@transfermodulenumber}
 	\date{}
 	\author{\@studentnumber \\\studyprogramme, \@class}
-	\ihead*{\includegraphics[height=20pt]{image/transferleistung}}
 }
 \DeclareOption{paper}{
 }
@@ -79,4 +76,3 @@
 
 \input{settings/image}
 \input{settings/codestyle}
-
