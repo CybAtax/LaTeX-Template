@@ -48,28 +48,6 @@
 \RequirePackage[automake,nonumberlist,acronym,toc]{glossaries}
 \makeglossaries
 
-% Options
-\DeclareOption{transfermodule}{
-	\newcommand*{\studyprogramme} {
-		\IfStrEqCase{\StudyProgrammeCharacter} {
-				{A}{Angewandte Informatik}
-				{B}{Betriebswirtschaftslehre}
-				{I}{Wirtschaftsinformatik}
-				{W}{Wirtschaftsingenieurswesen}
-		}[Unbekannter Studiengang]
-	}
-	\newcommand*{\transfermodulenumber}[1]{\gdef\@transfermodulenumber{#1}}
-	\newcommand*{\studentnumber}[1]{\gdef\@studentnumber{#1}}
-	\newcommand*{\class}[1]{
-		\gdef\@class{#1}
-		\StrLeft{#1}{1}[\StudyProgrammeCharacter]
-	}
-	\subject{Transferleistung \@transfermodulenumber}
-	\date{}
-	\author{\@studentnumber \\\studyprogramme, \@class}
-}
-\DeclareOption{paper}{
-}
 \ProcessOptions\relax
 
 \input{settings/page}
