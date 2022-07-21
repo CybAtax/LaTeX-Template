@@ -17,5 +17,5 @@
 
 \titlehead{\includegraphics[width=\textwidth]{image/Nordakademie_Logo_gross}}
 
-\let\origBackmatter\backmatter
+\newcommand{\origBackmatter}{\backmatter}
 \renewcommand{\backmatter}{\clearpage\pagenumbering{Roman}\origBackmatter}
