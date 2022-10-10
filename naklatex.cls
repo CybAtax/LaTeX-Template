@@ -45,7 +45,8 @@
 \RequirePackage[hidelinks]{hyperref}
 \hypersetup{bookmarksnumbered}
 
-\RequirePackage[automake,nonumberlist,acronym,toc]{glossaries}
+\RequirePackage[automake,nonumberlist,acronym,toc,nopostdot,style=super]{glossaries}
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \makeglossaries
 
 \ProcessOptions\relax

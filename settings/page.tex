@@ -12,10 +12,10 @@
 %Header
 \RequirePackage{scrlayer-scrpage}
 \ohead*{
-    \includegraphics[height=20pt]{image/Nordakademie_Logo_small}
+%\includegraphics[height=20pt]{image/NAK_Logo}
 }
 
-\titlehead{\includegraphics[width=\textwidth]{image/Nordakademie_Logo_gross}}
+\titlehead{\includegraphics[width=\textwidth]{image/NAK_Logo}}
 
-\newcommand{\origBackmatter}{\backmatter}
+\let\origBackmatter\backmatter
 \renewcommand{\backmatter}{\clearpage\pagenumbering{Roman}\origBackmatter}
