@@ -2,9 +2,9 @@
 
 %(position) imgLink (imgWidth) caption (subcaption) label
 \NewDocumentCommand{\image}{O{H} m O{0.9\textwidth} m o m}{
-\figureStart[#1]
+\figureStart[#1]{#6}
     \includegraphics[width=#3]{#2}
-\figureEnd{#4}[#5]{#6}
+\figureEnd{#4}[#5]
 }
 
 \usepackage{svg}
@@ -12,16 +12,16 @@
 \usepackage{float}
 %(position) imgLink caption (subcaption) label
 \NewDocumentCommand{\svg}{o m m o m}{
-\figureStart[#1]
+\figureStart[#1]{#5}
     \includesvg[inkscapelatex=false]{{#2}}
-\figureEnd{#3}[{#4}]{#5}
+\figureEnd{#3}[{#4}]
 }
 
 \usepackage{wrapfig}
 %imgLink (imgWidth) (relativePos) caption (subcaption) label
 \NewDocumentCommand{\wrap}{m O{0.5\linewidth} O{r} m o m}{
-\begin{wrapfigure}{#3}{#2}
-    \includegraphics[width={#2}]{#1}
-    \captionLabel{#4}[{#5}]{fig:#6}
+\begin{wrapfigure}{#3}{#2}\label{fig:#6}
+    \includegraphics[width=#2]{#1}
+    \internalCaption{#4}[#5]
 \end{wrapfigure}
 }

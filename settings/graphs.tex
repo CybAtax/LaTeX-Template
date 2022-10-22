@@ -1,9 +1,9 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
-% (bar width) y-label x-label
-\NewDocumentCommand{\bargraphStart}{O{15pt} m m }{
-\figureStart
+% (bar width) y-label x-label graph-label
+\NewDocumentCommand{\bargraphStart}{O{15pt} m m m }{
+\figureStart{#4}
     \begin{tikzpicture}
     \begin{axis} [
       ybar,
@@ -26,10 +26,10 @@
 }
 
 % caption (subcaption) label
-\NewDocumentCommand{\bargraphEnd}{ m o m }{
+\NewDocumentCommand{\bargraphEnd}{ m O{} }{
     \end{axis}
     \end{tikzpicture}
-\figureEnd{#1}[#2]{fig:#3}
+\figureEnd{#1}[#2]
 }
 
 % Pie chart drawing library 
@@ -37,9 +37,9 @@
 
 % data (options) caption (subcaption) label
 \NewDocumentCommand{\easyPie}{ m o m o m }{
-\figureStart
+\figureStart{#5}
     \begin{tikzpicture}
-        \pie[{#2}]{#1}
+        \pie[#2]{#1}
     \end{tikzpicture}
-\figureEnd{#3}[#4]{fig:#5}
+\figureEnd{#3}[#4]
 }

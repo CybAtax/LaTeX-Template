@@ -19,8 +19,8 @@
 \makeatother
 
 % (layout) (position)
-\NewDocumentCommand{\tableStart}{ O{p{0.3\linewidth}|p{0.7\linewidth}} O{H} }{
-\begin{table}[{#2}]
+\NewDocumentCommand{\tableStart}{ O{p{0.3\linewidth}|p{0.7\linewidth}} O{H} m }{
+\begin{table}[#2]\label{tab:#3}
     \centering
     \begin{easytable}{#1}
 }
@@ -29,9 +29,9 @@
 % This does not work with alignment for some reason
 
 %caption subcaption label
-\NewDocumentCommand{\tableEnd}{m m m}{
+\NewDocumentCommand{\tableEnd}{m m}{
     \end{easytable}
-    \captionLabel{#1}[{#2}]{#3}
+    \internalCaption{#1}[#2]
 \end{table}
 }
 
@@ -39,8 +39,8 @@
 
 
 %caption subcaption label
-\newcommand{\tableEnd}[3]{
+\newcommand{\tableEnd}[2]{
     \end{easytable}
-    \captionLabel{#1}[{#2}]{tab:#3}
+    \internalCaption{#1}[#2]
 \end{table}
 }
