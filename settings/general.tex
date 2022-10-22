@@ -30,3 +30,40 @@
     \internalCaption{#1}[#2]
 \end{figure}
 }
+
+%https://tex.stackexchange.com/questions/33193/how-to-determine-whether-a-list-of-figures-is-empty-then-not-show-it-at-all
+\usepackage[figure,table]{totalcount}
+
+% only render list of figures if there are figures
+\newcommand{\conditionalLoF}[0]{
+\iftotalfigures
+  {\let\clearpage\relax \listoffigures}
+\fi
+}
+
+% only render list of tables if there are tables
+\newcommand{\conditionalLoT}[0]{
+\iftotaltables
+    {\let\clearpage\relax \listoftables}
+\fi
+}
+
+% only render list of listings if there are listings
+% this solution differs from others as totalcount package does not seem to work with the lstlisting counter
+% https://tex.stackexchange.com/questions/297600/conditional-list-of-listings-lstlistoflistings-only-if-listings-are-present
+\usepackage{xassoccnt}
+\NewTotalDocumentCounter{totallistings}
+
+\DeclareAssociatedCounters{lstlisting}{totallistings}
+
+\makeatletter
+\renewcommand{\TotalValue}[1]{%
+  \value{xassoccnt@total@#1}%
+}
+\makeatother
+
+\newcommand{\conditionalLoL}[0]{
+\ifnum\TotalValue{totallistings} > 0 
+    {\let\clearpage\relax \lstlistoflistings}
+\fi
+}

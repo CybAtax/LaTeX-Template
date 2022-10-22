@@ -22,9 +22,9 @@
 	\printglossaries
 
 	\newpage
-	{\let\clearpage\relax \listoffigures} 
-	{\let\clearpage\relax \listoftables}
-	{\let\clearpage\relax \lstlistoflistings}
+	\conditionalLoF
+	\conditionalLoT
+	\conditionalLoL
 	
 	\setcounter{figure}{0}
 	
@@ -40,9 +40,8 @@
         \input{pages/conclusion}
 	
 	\backmatter
-		\printbibliography[title=Literaturverzeichnis]
+	\printbibliography[title=Literaturverzeichnis]
 	
 	\appendix
-		\input{frame/appendix}
-
+	\input{frame/appendix}
 \end{document}
