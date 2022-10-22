@@ -1,0 +1,39 @@
+\DeclareOption{thesis}{
+	\renewcommand{\maketitle}{
+            \thispagestyle{empty}
+            \begin{titlepage}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{image/frame/title-nak.eps}\\[1cm]
+                    \textcolor{gray}{\textbf{\Large BACHELORARBEIT}} \\
+                    \vspace{1em}
+                    \textcolor{darkgray}{Zur Erlangung des akademischen Grades Bachelor of Science (B. Sc.)} \\
+                    \vspace{1em}
+                    \textcolor{darkgray}{in der Fachrichtung} \\
+                    \textcolor{darkgray}{\textbf{\@studyprogramme}} \\
+                    \vspace{3em}
+                    { \huge \bfseries \@title} \\
+                    \vspace{1em}
+                    \ifcsname \@subtitle \endcsname {\Large \@subtitle } \\ \fi
+                    \vspace{5em}
+                    \begin{tabular}[H]{lll}
+                        Eingereicht von: & & \@author (Matrikelnummer: \@matriculationnumber) \\
+                        & & \@authoraddress \\
+                        & & Tel.: \@phonenumber \\
+                        & & E-Mail \mail{\@mailaddress} \\
+                        & & \\
+                        Erarbeitet im: & & 7. Semester \\
+                        Bearbeitungszeitraum: & & \@dateStart  --  \@dateFinish \\
+                        & & \\
+                        Gutachter: & & \@appraiser \\
+                        Co-Gutachter: & & \@coappraiser \\
+                        & & \\
+                        Betrieblicher Betreuer: & & \@supervisor \\
+                        & & \@supervisoraddress \\
+                        & & Tel.: \@supervisorphonenumber \\
+                        & & E-Mail: \mail{\@supervisormailaddress} \\
+		          \end{tabular}
+                \end{center}
+        \end{titlepage}
+    }
+}
+\ProcessOptions\relax

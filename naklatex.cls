@@ -50,6 +50,35 @@
 \ExecuteBibliographyOptions{sorting=nty}
 \addbibresource{sources.bib}
 
+\input{cover/transferleistung}
+\input{cover/thesis}
+
 \ProcessOptions\relax
+
+\newcommand*{\matriculationnumber}[1]{\gdef\@matriculationnumber{#1}}
+
+% transfermodule specific variables
+\newcommand*{\transfermodulenumber}[1]{\gdef\@transfermodulenumber{#1}}
+\newcommand*{\centurion}[1]{\gdef\@centurion{#1}}
+
+
+% thesis specific variables
+
+\newcommand*{\studyprogramme}[1]{\gdef\@studyprogramme{#1}}
+
+\newcommand*{\authoraddress}[1]{\gdef\@authoraddress{#1}}
+\newcommand*{\phonenumber}[1]{\gdef\@phonenumber{#1}}
+\newcommand*{\mailaddress}[1]{\gdef\@mailaddress{#1}}
+
+\newcommand*{\dateStart}[1]{\gdef\@dateStart{#1}}
+\newcommand*{\dateFinish}[1]{\gdef\@dateFinish{#1}}
+
+\newcommand*{\appraiser}[1]{\gdef\@appraiser{#1}}
+\newcommand*{\coappraiser}[1]{\gdef\@coappraiser{#1}}
+ 
+\newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}}
+\newcommand*{\supervisoraddress}[1]{\gdef\@supervisoraddress{#1}}
+\newcommand*{\supervisorphonenumber}[1]{\gdef\@supervisorphonenumber{#1}}
+\newcommand*{\supervisormailaddress}[1]{\gdef\@supervisormailaddress{#1}}
 
 \input{settings/settings}

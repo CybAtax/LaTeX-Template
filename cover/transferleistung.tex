@@ -1,42 +1,38 @@
-\thispagestyle{empty}
+\DeclareOption{tfl}{
+    \renewcommand{\maketitle}{
+        \thispagestyle{empty}
+        \setlength{\parindent}{0pt}
+        
+        \begin{figure}[t]
+            \vspace*{-2.9\baselineskip}
+            \begin{subfigure}[b]{0.6\textwidth}
+                \includegraphics[height=1cm, left]{image/frame/header-tfl}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[height=1cm, right]{image/frame/header-nak}
+            \end{subfigure}
+        \end{figure}
+        
+        \begin{figure}[t]
+            \begin{tikzpicture}
+                \fill[blue!35!black,path fading=west] (0,-0.5pt) rectangle (\linewidth,0.5pt);
+            \end{tikzpicture}
+        \end{figure}
+        
+        \large
+        \textcolor{blue!30!black}{\textbf{Transferleistung Theorie/Praxis }} \@transfermodulenumber
+        \newline\newline
 
-\setlength{\parindent}{0pt}
-
-\begin{figure}[t]
-    \vspace*{-2.9\baselineskip}
-    \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[height=1cm, left]{image/frame/header-tfl}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-        \includegraphics[height=1cm, right]{image/frame/header-nak}
-    \end{subfigure}
-\end{figure}
-\begin{figure}[t]
-    \begin{tikzpicture}
-        \fill[blue!35!black,path fading=west] (0,-0.5pt) rectangle (\linewidth,0.5pt);
-    \end{tikzpicture}
-\end{figure}
-
-
-\large
-\textcolor{blue!30!black}{\textbf{Transferleistung Theorie/Praxis }}
-\transfermodulenumber
-\newline\newline
-
-\normalsize
-\begin{tabular}{ |p{5cm}|p{11cm}| }
-    \hline
-    \cellcolor{blue!35!black}\textcolor{white}{\textbf{Matrikelnummer:}\newline} &
-    \Author
-    \\
-    \hline
-    \cellcolor{blue!35!black}\textcolor{white}{\textbf{Freigegebenes Thema: }\newline\newline\newline\newline} &
-    \Title
-    \\
-    \hline
-    \cellcolor{blue!35!black}\textcolor{white}{\textbf{Studiengang, Zenturie:}\newline} &
-    \centurion
-    \\
-
-    \hline
-\end{tabular}
+        \normalsize
+        \begin{tabular}{ |p{5cm}|p{11cm}| }
+            \hline
+            \cellcolor{blue!35!black}\textcolor{white}{\textbf{Matrikelnummer:}\newline} & \@author \\
+            \hline
+            \cellcolor{blue!35!black}\textcolor{white}{\textbf{Freigegebenes Thema: }\newline\newline\newline\newline} & \@title \\
+            \hline
+            \cellcolor{blue!35!black}\textcolor{white}{\textbf{Studiengang, Zenturie:}\newline} & \@centurion \\
+            \hline
+        \end{tabular}
+    }
+}
+\ProcessOptions\relax
