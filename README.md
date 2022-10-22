@@ -12,23 +12,7 @@
 [Add conclusion](pages/conclusion.tex)
 <br>
 
-## Bibliography
-
-[Add sources](sources.bib) <br/>
-
-```
-@misc{<name>,
-  title={<title>},
-  author={<author>},
-  year={<year>}
-}
-```
-
-Other examples can be found at: [BibTex Entry Types](https://www.bibtex.com/e/entry-types/)
-<br>
-Cite using ```\cite{source} | \parencite[options][]{source}```
-
-## Glossary & Appendix
+## Glossary
 
 [Add glossary entry](frame/glossary.tex)
 <br/>
@@ -48,37 +32,60 @@ Cite using ```\cite{source} | \parencite[options][]{source}```
 \newacronym{label}{acronym}{phrase}
 ```
 
-Use acronym: ```\acrfull{label} | \acrlong{label} | \acrshort```
+Use acronym: ```\acrfull{label} | \acrlong{label} | \acrshort{label}```
 
-## Formatting
+## Macros
 
-### Layout
+### Native 
+|    Macro    | Parameters |       Explanation        |                                                                Notes                                                                 |
+|:-----------:|:----------:|:------------------------:|:------------------------------------------------------------------------------------------------------------------------------------:|
+|    \\\\     |     -      |        Linebreak         |                                                        alternative: \newline                                                         |
+|  \chapter   |   {name}   |   Start a new chapter    |                                                                                                                                      |
+|  \section   |   {name}   |   Start a new section    |                                                                                                                                      |
+| \subsection |   {name}   |  Start a new subsection  |                                                                                                                                      |
+| \paragraph  |   {text}   |  Start a new paragraph   |                                                                                                                                      |
+|   \label    |  {value}   | Add a key for references | To allow type interpolation use [prefixes for labels](https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing#Introduction) |
 
-| Shortcut | Parameters |
-| :------: | :--------: |
-| \\\\ | - | 
-| \chapter | {name} |
-| \section | {name} |
+### Media
+|      Macro       |      Parameters (optional in *cursive*)       |                                              Explanation                                              |                                    Notes                                    |
+|:----------------:|:---------------------------------------------:|:-----------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
+| \valueOrDefeault |            parameter, defaultValue            |               Uses parameter if it contains a value, otherwise defaults to second value               |                                                                             |
+|                  |                                               |                                                                                                       |                                                                             |
+|      \image      |    *(subcaption)*, imgRef, caption, label     |                                             Inserts image                                             |                              **Types**:png,jpg                              |
+|       \svg       |    *(subcaption)*, imgRef, caption, label     |                                              Inserts svg                                              |           Special configuration differs from generic ```\image```           |
+|                  |                                               |                                                                                                       |                                                                             |
+|   \tableStart    |                                               |                                          Starts a new table                                           |                       Requires ```\tableEnd``` after                        |
+|    \tableEnd     |        *(subcaption)*,  caption, label        |                                          Ends current table                                           |                      Requires ```\tableStart``` before                      |
+|                  |                                               |                                                                                                       |                                                                             |
+|  \bargraphStart  |                                               |                                        Starts a new bar graph                                         | Requires ```\bargraphEnd```after<br><br>Add values using ```\coordinates``` |
+|   \coordinates   |                  coordinates                  |                                 Inserts values into current bar graph                                 |                   Key-Value-Pairs as shown in the example                   |
+|   \bargraphEnd   |        *(subcaption)*,  caption, label        |                                      Ends the current bar graph                                       |                    Requires ```\bargraphStart``` before                     |
+|                  |                                               |                                                                                                       |                                                                             |
+|     \easyPie     | *(options)*, data, caption, subcaption, label | Inserts a pie graph using the specified data. Can be [customized](templates/graphs.tex) with options  |                                                                             |
 
-### Citation
 
-|   Shortcut   |     Parameters      |
-|:------------:|:-------------------:|
-| \cite        |  [options]{source}  |
-|  \parencite  | [options][]{source} |
 
-### Images
+## Bibliography
 
-| Shortcut | Parameters |
-| :------: | :--------: |
-| \img | imgLink |
-| \svg | svgLink, caption, subCaption |
+[Add sources](sources.bib) <br/>
 
-### Misc
+```
+@misc{<name>,
+  title={<title>},
+  author={<author>},
+  year={<year>}
+}
+```
 
-| Shortcut | Parameters | 
-| :------: | :--------: |
-| \input | .tex - File |
+Other examples can be found at: [BibTex Entry Types](https://www.bibtex.com/e/entry-types/)
+<br><br>
+Cite using ```\autocite[prefix][suffix]{source}```
+
+## Media
+
+For ease of use there are various macros to create media.
+
+Refer to [Templates](templates) and [Examples](examples) for further insight
 
 ## Tools
 

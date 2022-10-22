@@ -1,0 +1,46 @@
+\usepackage{tabularx}
+\usepackage{tabulary} %for custom table in the first page
+\usepackage{colortbl} %for coloring rows / columns / cells in tables
+
+\makeatletter
+    \newcolumntype{\expand}{}
+    \long\@namedef{NC@rewrite@\string\expand}{\expandafter\NC@find}
+\makeatother
+
+\newcommand\mypream{}
+
+\makeatletter
+\newenvironment{easytable}[1]%
+    {%
+    \protected@edef\mypream{ | #1 |}%
+    \begin{tabular}{\expand\mypream}\hline}
+    {%
+    \hline\end{tabular}}
+\makeatother
+
+% (layout) (position)
+\NewDocumentCommand{\tableStart}{ O{p{0.3\linewidth}|p{0.7\linewidth}} O{H} }{
+\begin{table}[{#2}]
+    \centering
+    \begin{easytable}{#1}
+}
+
+\iffalse
+% This does not work with alignment for some reason
+
+%caption subcaption label
+\NewDocumentCommand{\tableEnd}{m m m}{
+    \end{easytable}
+    \captionLabel{#1}[{#2}]{#3}
+\end{table}
+}
+
+\fi
+
+
+%caption subcaption label
+\newcommand{\tableEnd}[3]{
+    \end{easytable}
+    \captionLabel{#1}[{#2}]{tab:#3}
+\end{table}
+}

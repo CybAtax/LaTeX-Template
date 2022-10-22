@@ -1,20 +1,27 @@
-\usepackage{subcaption} %for subfigures
-
 \RequirePackage{graphicx}
-\newcommand{\image}[2]{
-    \begin{figure}[H]
-        \includegraphs[{#1}]{{#2}}
-    \end{figure}
+
+%(position) imgLink (imgWidth) caption (subcaption) label
+\NewDocumentCommand{\image}{O{H} m O{0.9\textwidth} m o m}{
+\figureStart[#1]
+    \includegraphics[width=#3]{#2}
+\figureEnd{#4}[#5]{#6}
 }
 
 \usepackage{svg}
 \usepackage{amsmath}
 \usepackage{float}
+%(position) imgLink caption (subcaption) label
+\NewDocumentCommand{\svg}{o m m o m}{
+\figureStart[#1]
+    \includesvg[inkscapelatex=false]{{#2}}
+\figureEnd{#3}[{#4}]{#5}
+}
 
-\newcommand{\svg}[3]{
-    \begin{figure}[H]
-        \centering
-        \includesvg[inkscapelatex=false]{{#1}}
-        \caption[{#2}]{{#2} \\{#3}}
-    \end{figure}
+\usepackage{wrapfig}
+%imgLink (imgWidth) (relativePos) caption (subcaption) label
+\NewDocumentCommand{\wrap}{m O{0.5\linewidth} O{r} m o m}{
+\begin{wrapfigure}{#3}{#2}
+    \includegraphics[width={#2}]{#1}
+    \captionLabel{#4}[{#5}]{fig:#6}
+\end{wrapfigure}
 }

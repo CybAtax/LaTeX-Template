@@ -1,21 +1,26 @@
-\renewcommand*\familydefault{\sfdefault} % Comment out for serif font
+\usepackage{microtype} % enhances line break behavior
+
+\renewcommand*\familydefault{\sfdefault} % comment out for serif font
 \RedeclareSectionCommand[beforeskip=15pt, afterskip=5pt]{chapter}
 \RedeclareSectionCommand[beforeskip=5pt, afterskip=2pt]{section}
 
-% Seitenränder
+% margins
 \RequirePackage[left=2cm,right=2cm,top=2cm,bottom=2cm,headheight=1cm,headsep=0.5cm]{geometry}
 
-% Zielenabstand 1,5
+% line-spacing 1,5
 \RequirePackage{setspace}
 \onehalfspacing
 
-%Header
+% header
 \RequirePackage{scrlayer-scrpage}
 \ohead*{
-%\includegraphics[height=20pt]{image/NAK_Logo}
+    %\includegraphics[height=20pt]{image/frame/header-nak}
 }
 
-\titlehead{\includegraphics[width=\textwidth]{image/NAK_Logo}}
+\titlehead{\includegraphics[width=\textwidth]{image/frame/title-nak.eps}}
 
 \let\origBackmatter\backmatter
 \renewcommand{\backmatter}{\clearpage\pagenumbering{Roman}\origBackmatter}
+
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}

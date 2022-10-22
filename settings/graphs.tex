@@ -1,0 +1,45 @@
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% (bar width) y-label x-label
+\NewDocumentCommand{\bargraphStart}{O{15pt} m m }{
+\figureStart
+    \begin{tikzpicture}
+    \begin{axis} [
+      ybar,
+      bar width={#1},
+      axis x line*=bottom,
+      axis y line*=left,
+      ymajorgrids={true},
+      grid style={gray},
+      nodes near coords,
+      nodes near coords style={color=black},
+      xtick=data,
+      ylabel={#2},
+      xlabel={#3}
+    ]
+}
+
+% coordinates
+\newcommand{\coordinates}[1]{
+\addplot coordinates {#1};
+}
+
+% caption (subcaption) label
+\NewDocumentCommand{\bargraphEnd}{ m o m }{
+    \end{axis}
+    \end{tikzpicture}
+\figureEnd{#1}[#2]{fig:#3}
+}
+
+% Pie chart drawing library 
+\usepackage{pgf-pie} 
+
+% data (options) caption (subcaption) label
+\NewDocumentCommand{\easyPie}{ m o m o m }{
+\figureStart
+    \begin{tikzpicture}
+        \pie[{#2}]{#1}
+    \end{tikzpicture}
+\figureEnd{#3}[#4]{fig:#5}
+}

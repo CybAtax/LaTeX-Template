@@ -1,4 +1,3 @@
-\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{naklatex}
 
 \LoadClass[
@@ -11,47 +10,46 @@
 	parskip=half
 ]{scrbook}
 
-\RequirePackage{scrhack} % package for compatibility with listings
-\RequirePackage{listings} % code formatting
-\RequirePackage{xstring} % string comparison (transfermodule course of study)
-\RequirePackage[ngerman]{babel} % deutsches Sprachpaket
+\RequirePackage[ngerman]{babel} % german language package
 \RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
-\RequirePackage[utf8]{inputenc} % utf8 Support
-\RequirePackage{stmaryrd}
-\RequirePackage[babel, german=quotes]{csquotes}
-\RequirePackage[T1]{fontenc}
-\RequirePackage{lmodern} % Gerenderte Schrift
-\RequirePackage{microtype}
-\RequirePackage{eurosym} % Euro Symbol
-\RequirePackage{tabularx}
 
-\usepackage{tabulary} %for custom table in the first page
-\usepackage{colortbl}
+\RequirePackage[utf8]{inputenc} % utf8 Support
+\RequirePackage[T1]{fontenc} % encoding to enable special characters
+\RequirePackage{latexsym} % additional characters
+
+\RequirePackage{stmaryrd} % font stuff
+\RequirePackage[babel, german=quotes]{csquotes}
+\RequirePackage{lmodern} % rendered font
+
+\RequirePackage{eurosym} % euro symbol
+
 \usepackage{etoolbox}
 
-\RequirePackage{latexsym}
-
-%for custom scripts f.e. filling colors.. https://tex.stackexchange.com/questions/83992/how-to-create-and-include-tikz-files-in-your-manuscript
-%Tikz-Import
+% for custom scripts f.e. filling colors.. https://tex.stackexchange.com/questions/83992/how-to-create-and-include-tikz-files-in-your-manuscript
+% Tikz-Import
 \RequirePackage{tikz}
 \usetikzlibrary{fadings}
 
-%pdf im text
+% pdf im text
 \RequirePackage{pdfpages}
 \RequirePackage[export]{adjustbox}
 
-%load hyperref last but before glossaries
+% load hyperref last but before glossaries
 \RequirePackage[hyphens]{url} %break urls
 \RequirePackage[hidelinks]{hyperref}
 \hypersetup{bookmarksnumbered}
 
+% glossary settings
 \RequirePackage[automake,nonumberlist,acronym,toc,nopostdot,style=super]{glossaries}
 \renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \makeglossaries
 
+% literature settings
+\usepackage[backend=biber, style=alphabetic, hyperref=true, natbib=true, maxbibnames=9, maxcitenames=2]{biblatex}
+\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}},}
+\ExecuteBibliographyOptions{sorting=nty}
+\addbibresource{sources.bib}
+
 \ProcessOptions\relax
 
-\input{settings/page}
-
-\input{settings/image}
-\input{settings/codestyle}
+\input{settings/settings}

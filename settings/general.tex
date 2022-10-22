@@ -1,0 +1,38 @@
+\usepackage{xparse}
+
+\usepackage{subcaption}
+
+% caption (subcaption)
+\NewDocumentCommand{\internalCaption}{m o}{
+\caption[{#1}]{{#1} \\ {#2}}
+}
+
+\usepackage{xifthen}
+% value default
+\newcommand{\valueOrDefault}[2]{
+    \ifthenelse{\isempty{#1}}{#2}{#1}
+}
+
+% name e-mail
+\newcommand{\authorMail}[2]{
+    {#1} \\
+    \href{mailto:#2}{#2}
+}
+
+% caption (subcaption) label
+\NewDocumentCommand{\captionLabel}{ m o m }{
+\internalCaption{#1}[#2]
+\label{#3}
+}
+
+% (position)
+\NewDocumentCommand{\figureStart}{ O{H} }{
+\begin{figure}[#1]
+        \centering
+}
+
+% caption (subcaption) label
+\NewDocumentCommand{\figureEnd}{m o m}{
+    \captionLabel{#1}[#2]{fig:#3}
+\end{figure}
+}

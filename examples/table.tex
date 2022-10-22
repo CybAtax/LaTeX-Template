@@ -1,0 +1,19 @@
+\chapter{Tabellen}\label{ch:tables}
+
+\tableStart
+1 & 2 \\
+\tableEnd{1 : 2,3}{(Verhältnis)}{example-table-1}
+
+\tableStart[{p{0.5\linewidth}|p{0.5\linewidth}}]
+A1 & B1 \\
+\hline
+A2 & B2 \\
+\tableEnd{1 : 1}{}{example-table-2}
+
+\tableStart[p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}]
+A1 & B1 & C1 \\
+\hline
+A2 & B2 & C2 \\
+\hline
+A3 & B3 & C3 \\
+\tableEnd{1 : 1 : 1}{}{example-table-3}

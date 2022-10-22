@@ -1,14 +1,5 @@
 \documentclass{naklatex}
 
-%Literatur Einstellungen
-\usepackage[backend=biber, style=alphabetic, hyperref=true, natbib=true, maxbibnames=9, maxcitenames=2]{biblatex}
-\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}},}
-\ExecuteBibliographyOptions{sorting=nty}
-\addbibresource{sources.bib}
-
-\counterwithout{figure}{chapter}
-%\setcounter{figure}{0} %Uncomment in case of wrong figure numbering
-
 %import glossaries files
 \loadglsentries{frame/glossary}
 \loadglsentries{frame/acronym}
@@ -25,24 +16,33 @@
 	\hypersetup{pageanchor=true}
 	\pagestyle{scrheadings}
 	\frontmatter
-
+	
 	\tableofcontents
-
+	
 	\printglossaries
-	\\
-	\newline
-	%\lstlistoflistings
-	%{\let\clearpage\relax \listoffigures}
-	%{\let\clearpage\relax \listoftables}
 
+    \newpage
+		{\let\clearpage\relax \listoffigures}
+		{\let\clearpage\relax \listoftables}
+    	{\let\clearpage\relax \lstlistoflistings}
+	
+	\setcounter{figure}{0}
+	
 	\mainmatter
 
-	\input{pages/intro}
-	\input{pages/conclusion}
+        \input{pages/intro}
 
+        \input{examples/image}
+        \input{examples/table}
+        \input{examples/graphs}
+        \input{examples/listing}
+
+        \input{pages/conclusion}
+	
 	\backmatter
-	\printbibliography[title=Literaturverzeichnis]
-
+		\printbibliography[title=Literaturverzeichnis]
+	
 	\appendix
-	\input{frame/appendix}
+		\input{frame/appendix}
+
 \end{document}
