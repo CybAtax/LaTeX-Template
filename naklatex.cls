@@ -50,6 +50,7 @@
 \ExecuteBibliographyOptions{sorting=nty}
 \addbibresource{sources.bib}
 
+\input{cover/assignment}
 \input{cover/transferleistung}
 \input{cover/thesis}
 
@@ -57,10 +58,14 @@
 
 \newcommand*{\matriculationnumber}[1]{\gdef\@matriculationnumber{#1}}
 
+% assignment specific variables
+\newcommand*{\modulenumber}[1]{\gdef\@modulenumber{#1}}
+\newcommand*{\modulename}[1]{\gdef\@modulename{#1}}
+\newcommand*{\lecturer}[1]{\gdef\@lecturer{#1}}
+
 % transfermodule specific variables
 \newcommand*{\transfermodulenumber}[1]{\gdef\@transfermodulenumber{#1}}
 \newcommand*{\centurion}[1]{\gdef\@centurion{#1}}
-
 
 % thesis specific variables
 

@@ -1,0 +1,24 @@
+\DeclareOption{assignment}{
+	\renewcommand{\maketitle}{
+            \thispagestyle{empty}
+            \begin{titlepage}
+                \begin{center}
+                    \vspace{2cm}
+                    \includegraphics[width=0.8\textwidth]{image/frame/title-nak.eps} \\
+                    \vspace{2.5cm}
+                    \textbf{\Large \@title} \\
+                    \vspace{1cm}
+                    \ifcsname \@subtitle \endcsname {\large \@subtitle } \\ \fi
+                    \vspace{4em}
+                    \@author \\
+                    \vspace{4cm}
+                    Abgabedatum: \today \\
+                    \vspace{1cm}
+                    Modul: \@modulenumber  -- \@modulename \\
+                    \vspace{1cm}
+                    Dozent: \@lecturer \\
+                \end{center}
+        \end{titlepage}
+    }
+}
+\ProcessOptions\relax
