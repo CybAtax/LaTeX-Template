@@ -1,1 +1,18 @@
-\newacronym{tk}{TK}{Techniker Krankenkasse}
+% Utility command to avoid duplicating the label
+\newcommand{\acr}[2]{
+\lowercase{\def\key{#1}} % Remove the lowercase part if you want to address your glossary label to have the same capitalization as your name (first parameter)
+\newacronym{\key}{#1}{#2}
+}
+
+% Acronyms that are used quite commonly
+% If they are not used, they are ignored in the glossary
+\acr{API}{Application Programming Interface}
+\acr{DOM}{Document Object Model}
+\acr{HTML}{Hypertext Markup Language}
+\acr{HTTP}{Hypertext Transfer Protocol}
+\acr{IT}{Informationstechnologie}
+\acr{JSON}{JavaScript Object Notation}
+\acr{TCP}{Transmission Control Protocol}
+\acr{TK}{Techniker Krankenkasse}
+\acr{URI}{Uniform Resource Identifier}
+\acr{URL}{Uniform Resource Locator}
