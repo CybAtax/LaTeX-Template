@@ -23,7 +23,7 @@
 
 \RequirePackage{eurosym} % euro symbol
 
-\usepackage{etoolbox}
+\RequirePackage{etoolbox}
 
 % for custom scripts f.e. filling colors.. https://tex.stackexchange.com/questions/83992/how-to-create-and-include-tikz-files-in-your-manuscript
 % Tikz-Import
@@ -45,7 +45,7 @@
 \makeglossaries
 
 % literature settings
-\usepackage[backend=biber, style=alphabetic, hyperref=true, natbib=true, maxbibnames=9, maxcitenames=2]{biblatex}
+\RequirePackage[backend=biber, style=alphabetic, hyperref=true, natbib=true, maxbibnames=9, maxcitenames=2]{biblatex}
 \DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}},}
 \ExecuteBibliographyOptions{sorting=nty}
 \addbibresource{sources.bib}

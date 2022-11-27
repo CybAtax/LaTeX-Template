@@ -23,7 +23,7 @@
 }
 
 % caption (subcaption) label
-\NewDocumentCommand{\figureEnd}{ m o }{
+\NewDocumentCommand{\figureEnd}{ m O{} }{
     \internalCaption{#1}[#2]
 \end{figure}
 }
@@ -60,7 +60,7 @@
 \makeatother
 
 \newcommand{\conditionalLoL}[0]{
-\ifnum\TotalValue{totallistings} > 0 
+\ifnum\TotalValue{totallistings} > 1 %Greater than 1 as one is declared in codestyle.tex 
     {\let\clearpage\relax \lstlistoflistings}
 \fi
 }
