@@ -4,62 +4,61 @@
 %\usepackage{beramono} %Uncomment for IDE-style code font
 %\usepackage{inconsolata} %Uncomment for scientific style code font
 
-% listing listing
-\NewDocumentCommand{\beginListing}{ m m m }{
-\begin{lstlisting}[language=#1, caption=#2, label=lst:#3]
-}
+\newcommand{\CodeSymbol}[1]{\textcolor{blue}{#1}}
 
 \renewcommand*{\lstlistingname}{Code}
 \renewcommand*{\lstlistlistingname}{Codeverzeichnis}
 
-% language definition: Kotlin (example)
-\lstdefinelanguage{Kotlin} {
-    morekeywords={abstract, actual, as, as?, break, by, class, companion, continue, data, do, dynamic, else, enum, expect, false, final, for, fun, get, if, import, in, interface, internal, is, null, object, override, package, private, public, return, set, super, suspend, this, throw, true, try, typealias, val, var, vararg, when, where, while},
-    morestring=[b]",
-    morestring=[b]',
-    morecomment=[l]{*},
-    morecomment=[s]{/*}{*/}
-}
-
-\lstset{frame=tb,
-    language=Kotlin,
-    aboveskip=3mm,
-    belowskip=3mm,
-    showstringspaces=false,
-    columns=flexible,
-    basicstyle={\small\ttfamily},
-    numbers=none,
-    numberstyle=\small\ttfamily,
-    keywordstyle=\textcolor{blue},
-    commentstyle=\color{dkgreen},
-    stringstyle=\textcolor{red},
-    breaklines=true,
-    breakatwhitespace=true,
-    tabsize=3,
-    captionpos=b
-}
-
 % language definition: Java (example)
 \lstdefinestyle{Java}{
-  backgroundcolor=\color{backcolour}, 
+  % Styling
+  captionpos=b,
+  columns=fullflexible,
+  % Colors
+  backgroundcolor=\color{codebackgroundcolor},
   commentstyle=\color{codegreen},
   keywordstyle=\color{blue},
   numberstyle=\tiny\color{codegray},
   stringstyle=\color{codegreen},
   basicstyle=\ttfamily\footnotesize,
-  breakatwhitespace=false,         
-  breaklines=true,
-  postbreak=\mbox{\textcolor{black}{$\hookrightarrow$}\space},
-  captionpos=b,                    
-  keepspaces=true,                 
-  numbers=left,                    
-  numbersep=5pt,                  
-  showspaces=false,                
-  showstringspaces=false,
-  showtabs=false,                  
+  % Spaces
+  keepspaces=true,
+  showspaces=false,
+  showtabs=false,
   tabsize=2,
+  breakatwhitespace=true,
+  breaklines=true,
+  showstringspaces=false,
+  postbreak=\mbox{\textcolor{black}{$\hookrightarrow$}\space},
+  % Line numbers
+  numbers=left,
+  numbersep=5pt,
+  % Additional keywords
   otherkeywords={var},
-  columns=fullflexible,
+  % Literates
+  literate=
+  % Curly braces
+  {\{}{{\CodeSymbol{\{}}}1
+  {\}}{{\CodeSymbol{\}}}}1
+  % Parantheses
+  {(}{{\CodeSymbol{(}}}1
+  {)}{{\CodeSymbol{)}}}1
+  % Brackets
+  {[}{{\CodeSymbol{[}}}1
+  {]}{{\CodeSymbol{]}}}1
+  % Maths
+  {>}{{\CodeSymbol{$>$}}}1
+  {=}{{\CodeSymbol{$=$}}}1
+  {;}{{\CodeSymbol{$;$}}}1
 }
 \lstset{style=Java}
 \lstset{texcl=true}
+
+% listing listing
+\NewDocumentCommand{\beginListing}{ m m m }{
+  \begin{lstlisting}[language=#1, caption=#2, label=lst:#3
+        % morecomment appears to only work in this scenario but not the style
+        morecomment={[n][\color{codegreen}]{/**}{*/}}, % Javadoc
+        morecomment={[n][\color{pred}]{@}{\^^M}} % Annotation (Java)
+  ]
+}
