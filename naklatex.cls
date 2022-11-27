@@ -51,7 +51,8 @@
 \addbibresource{sources.bib}
 
 \input{cover/assignment}
-\input{cover/transferleistung}
+\input{cover/transfer}
+\input{cover/expose}
 \input{cover/thesis}
 
 \ProcessOptions\relax

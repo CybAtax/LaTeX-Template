@@ -1,0 +1,16 @@
+\DeclareOption{expose}{
+	\renewcommand{\maketitle}{
+            \thispagestyle{empty}
+            \begin{titlepage}
+                \begin{center}
+                    \vspace{2cm}
+                    \textbf{\Large \@title} \\
+                    \vspace{1cm}
+                    \@author \\
+                    \vspace{1cm}
+                    \today
+                \end{center}
+        \end{titlepage}
+    }
+}
+\ProcessOptions\relax
