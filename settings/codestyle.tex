@@ -56,7 +56,7 @@
 
 % listing listing
 \NewDocumentCommand{\beginListing}{ m m m }{
-  \begin{lstlisting}[language=#1, caption=#2, label=lst:#3
+  \begin{lstlisting}[language=#1, caption=#2, label=lst:#3,
         % morecomment appears to only work in this scenario but not the style
         morecomment={[n][\color{codegreen}]{/**}{*/}}, % Javadoc
         morecomment={[n][\color{pred}]{@}{\^^M}} % Annotation (Java)
