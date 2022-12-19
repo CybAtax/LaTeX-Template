@@ -6,44 +6,45 @@
 \loadglsentries{frame/acronym}
 
 \begin{document}
-	\hypersetup{pageanchor=false}
+    \hypersetup{pageanchor=false}
+    
+    \input{settings/config}
 
-	\input{settings/config}
-
-	% See settings/config for the fields
-	\maketitle
-
-	%\input{frame/genderNeutralLanguage}
-
-	\hypersetup{pageanchor=true}
-	\pagestyle{scrheadings}
-	\frontmatter
+    % See settings/config for the fields
+    \maketitle
+    
+    %\input{frame/genderNeutralLanguage}
+    
+    \hypersetup{pageanchor=true}
+    \pagestyle{scrheadings}
+    \frontmatter
+    
+    \tableofcontents
+    
+    \printglossaries
+    \newpage
+    \conditionalLoF
+    \conditionalLoT
+    \conditionalLoL
 	
-	\tableofcontents
-	
-	\printglossaries
-
-	\newpage
-	\conditionalLoF
-	\conditionalLoT
-	\conditionalLoL
-	
-	\setcounter{figure}{0}
-	
-	\mainmatter
-
-    \input{pages/intro}
-    \input{examples/image}
-    \input{examples/table}
-    \input{examples/graphs}
-    \input{examples/listing}
-
-        \input{pages/conclusion}
-	
-	\backmatter
-	\printbibliography[title=Literaturverzeichnis]
-	
-	\appendix
-	\input{frame/appendix}
-
+    \setcounter{figure}{0}
+    
+    \mainmatter
+    
+    \input{pages/intro.tex}
+    \input{examples/comment.tex}
+    \input{examples/image.tex}
+    \input{examples/table.tex}
+    \input{examples/graphs.tex}
+    \input{examples/listing.tex}
+    \input{examples/scale.tex}
+    
+    \input{pages/conclusion.tex}
+    
+    \backmatter
+    \printbibliography[title=Literaturverzeichnis]
+    
+    \appendix
+    \input{frame/appendix}
+    
 \end{document}

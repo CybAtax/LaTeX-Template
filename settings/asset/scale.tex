@@ -1,0 +1,30 @@
+\usetikzlibrary{decorations.markings,arrows.meta}
+
+% (position) caption 
+\NewDocumentCommand{\beginScale}{ o m }{
+    \figureStart[#1]{#2}
+    \begin{tikzpicture}[
+        >=Stealth,
+        ->-/.style={
+            decoration={
+                markings,
+                mark=at position #1 with {\arrow{>}}
+            },
+            postaction={decorate}
+        },
+        ->-/.default=.7
+    ]
+    \path[<->] 
+        (-6,0) edge (6,0)
+    ;
+    \path[-]
+        (-2,0.2) edge (-2,-0.2)
+        (2,0.2) edge (2,-0.2)
+    ;
+}
+
+% (subcaption) label
+\NewDocumentCommand{\endScale}{o m}{
+    \end{tikzpicture}
+    \figureEnd{#2}[{#1}]
+}

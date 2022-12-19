@@ -10,6 +10,8 @@
 	parskip=half
 ]{scrbook}
 
+\input{settings/advanced/silence.tex}
+
 \RequirePackage[ngerman]{babel} % german language package
 \RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
 
@@ -43,12 +45,6 @@
 \RequirePackage[automake,nonumberlist,acronym,toc,nopostdot,style=super]{glossaries}
 \renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \makeglossaries
-
-% literature settings
-\RequirePackage[backend=biber, style=alphabetic, hyperref=true, natbib=true, maxbibnames=9, maxcitenames=2]{biblatex}
-\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}},}
-\ExecuteBibliographyOptions{sorting=nty}
-\addbibresource{sources.bib}
 
 \input{cover/assignment}
 \input{cover/transfer}

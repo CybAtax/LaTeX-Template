@@ -1,10 +1,10 @@
 % Utility command to avoid duplicating the label
 \newcommand{\acr}[2]{
     \lowercase{\def\key{#1}} % Remove the lowercase part if you want to address your glossary label to have the same capitalization as your name (first parameter)
-        \newacronym{\key}{#1}{#2}
+    \newacronym{\key}{#1}{#2}
     % Dynamically create commands as shorthands for gls: \<\key> -> \gls{<\key>}
     \ifcsname\key\endcsname%
-    % Do nothing to not override existing commands
+        % Do nothing to not override existing commands
     \else%
         \expandafter\xdef\csname \key\endcsname{\gls{\key}}
     \fi%
@@ -14,7 +14,7 @@
 % If they are not used, they are ignored in the glossary
 \acr{API}{Application Programming Interface}
 \acr{DOM}{Document Object Model}
-\acr{HTML}{Hypertext Markup Language}
+\acr{HTML}{HyperText Markup Language}
 \acr{HTTP}{Hypertext Transfer Protocol}
 \acr{IT}{Informationstechnologie}
 \acr{JSON}{JavaScript Object Notation}
