@@ -12,9 +12,9 @@
 }
 
 \NewDocumentCommand{\fixme}{O{} m}{
+    % Error needs to be inside condition or else markup comment will not render
     \ifthenelse{\isempty{#1}}
-        {\pdfcomment[icon=Note, color=red]{#2}}
-        {\pdfmarkupcomment[markup=Highlight, icon=Note, color=red]{#1}{#2}}
-    \PackageError{Internal}{#2}{}
+        {\pdfcomment[icon=Note, color=red]{#2} \PackageError{Internal}{#2}{}}
+        {\pdfmarkupcomment[markup=Highlight, icon=Note, color=red]{#1}{#2}\PackageError{Internal}{#2}{}}
 }
 
