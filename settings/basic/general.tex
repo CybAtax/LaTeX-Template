@@ -47,6 +47,11 @@
 % only render list of listings if there are listings
 % this solution differs from others as totalcount package does not seem to work with the lstlisting counter
 % https://tex.stackexchange.com/questions/297600/conditional-list-of-listings-lstlistoflistings-only-if-listings-are-present
+
+\ExplSyntaxOn
+\msg_redirect_name:nnn{xassoccnt}{incompatiblepackagenonfatal}{info} % Suppress this warning as it appears to work just fine
+\ExplSyntaxOff
+
 \usepackage{xassoccnt}
 \NewTotalDocumentCounter{totallistings}
 
