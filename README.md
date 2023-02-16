@@ -32,7 +32,7 @@
 \newacronym{label}{acronym}{phrase}
 ```
 
-Use acronym: ```\acrfull{label} | \acrlong{label} | \acrshort{label}```
+Use acronym: ```\gls{label} (acrfull on first use, then acrshort) | \acrfull{label} | \acrlong{label} | \acrshort{label}```
 
 ## Macros
 
