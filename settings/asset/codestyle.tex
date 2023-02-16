@@ -9,7 +9,17 @@
 \renewcommand*{\lstlistingname}{Code}
 \renewcommand*{\lstlistlistingname}{Codeverzeichnis}
 
-\newcommand{\code}[1]{\colorbox{codebackgroundcolor}{#1}}
+% "\code"-Box
+\usepackage{soul}
+
+\newcommand{\ctext}[3][RGB]{%
+  \begingroup
+  \definecolor{hlcolor}{#1}{#2}\sethlcolor{hlcolor}%
+  \hl{#3}%
+  \endgroup
+}
+
+\newcommand{\code}[1]{\ctext[RGB]{240,240,240}{#1}}
 
 % language definition: Java (example)
 \lstdefinestyle{Java}{
