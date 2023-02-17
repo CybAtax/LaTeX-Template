@@ -12,14 +12,14 @@
 % "\code"-Box
 \usepackage{soul}
 
-\newcommand{\ctext}[3][RGB]{%
+\newcommand{\ctext}[2]{%
   \begingroup
-  \definecolor{hlcolor}{#1}{#2}\sethlcolor{hlcolor}%
-  \hl{#3}%
+  \sethlcolor{#1}%
+  \hl{#2}%
   \endgroup
 }
 
-\newcommand{\code}[1]{\ctext[RGB]{240,240,240}{#1}}
+\newcommand{\code}[1]{\ctext{codebackgroundcolor}{#1}}
 
 % language definition: Java (example)
 \lstdefinestyle{Java}{
