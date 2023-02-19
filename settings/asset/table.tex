@@ -1,6 +1,9 @@
 \usepackage{tabularx}
-\usepackage{tabulary} %for custom table in the first page
-\usepackage{colortbl} %for coloring rows / columns / cells in tables
+\usepackage{tabulary} % for custom table in the first page
+\usepackage{colortbl} % for coloring rows / columns / cells in tables
+\usepackage{multirow} % for combining multiple rows
+\usepackage{diagbox}  % for diagonal cut cells
+\usepackage{rotating} % sideways table
 
 \makeatletter
     \newcolumntype{\expand}{}
@@ -18,7 +21,7 @@
     \hline\end{tabular}}
 \makeatother
 
-% (layout) (position)
+% (layout) (position) label
 \NewDocumentCommand{\tableStart}{ O{p{0.3\linewidth}|p{0.7\linewidth}} O{H} m }{
 \begin{table}[#2]\label{tab:#3}
     \centering
@@ -28,13 +31,12 @@
 \iffalse
 % This does not work with alignment for some reason
 
-%caption subcaption label
+%caption subcaption
 \NewDocumentCommand{\tableEnd}{m m}{
     \end{easytable}
     \internalCaption{#1}[#2]
 \end{table}
 }
-
 \fi
 
 
@@ -44,3 +46,8 @@
     \internalCaption{#1}[#2]
 \end{table}
 }
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{B}[1]{>{\centering\arraybackslash}b{#1}}

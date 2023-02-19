@@ -12,25 +12,30 @@
 
     % See settings/config for the fields
     \maketitle
-    
-    %\input{frame/genderNeutralLanguage}
+
+    \input{frame/lock-notice.tex}
     
     \hypersetup{pageanchor=true}
     \pagestyle{scrheadings}
     \frontmatter
     
+    %\input{frame/genderNeutralLanguage.tex}
+    \input{frame/abstract.tex}
+
+    \cleardoublepage
     \tableofcontents
     
     \printglossaries
-    \newpage
+    \cleardoublepage
     \conditionalLoF
     \conditionalLoT
     \conditionalLoL
-	
+
     \setcounter{figure}{0}
-    
+
+    \cleardoublepage
     \mainmatter
-    
+
     \input{pages/intro.tex}
     \input{examples/comment.tex}
     \input{examples/image.tex}
@@ -43,8 +48,11 @@
     
     \backmatter
     \printbibliography[title=Literaturverzeichnis]
-    
+
+    \cleardoublepage
     \appendix
     \input{frame/appendix.tex}
+
+    \finishWork
     
 \end{document}

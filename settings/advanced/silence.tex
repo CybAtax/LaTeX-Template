@@ -1,5 +1,10 @@
 \usepackage{silence}
-\WarningFilter[prod]{xassoccnt}{Package} % This doesn't work.
 \WarningFilter[prod]{hyperref}{Option `pdftex' has already been used}
 \WarningFilter[prod]{microtype}{Unable to apply patch `footnote'}
+\WarningFilter[prod]{marginnote}{Consecutive odd pages}
 \ActivateWarningFilters[prod]
+
+\hfuzz=100pt
+\vfuzz=100pt
+\hbadness=10000
+\vbadness=10000

@@ -1,18 +1,21 @@
 \ProvidesClass{naklatex}
 
 \LoadClass[
-	oneside,
+	%oneside, % If commented out its two-sided
 	bibliography=totoc,
 	index=totoc,
 	listof=totoc,
 	fontsize=12pt,
 	headings=small,
-	parskip=half
+	parskip=half,
+    openany,
+    numbers=noenddot,
+    dvipsnames, % for xcolor
 ]{scrbook}
 
 \input{settings/advanced/silence.tex}
 
-\RequirePackage[ngerman]{babel} % german language package
+\RequirePackage[english,ngerman]{babel} % german language package
 \RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
 
 \RequirePackage[utf8]{inputenc} % utf8 Support
@@ -27,15 +30,6 @@
 
 \RequirePackage{etoolbox}
 
-% for custom scripts f.e. filling colors.. https://tex.stackexchange.com/questions/83992/how-to-create-and-include-tikz-files-in-your-manuscript
-% Tikz-Import
-\RequirePackage{tikz}
-\usetikzlibrary{fadings}
-
-% pdf im text
-\RequirePackage{pdfpages}
-\RequirePackage[export]{adjustbox}
-
 % load hyperref last but before glossaries
 \RequirePackage[hyphens]{url} %break urls
 \RequirePackage[hidelinks]{hyperref}
@@ -45,6 +39,8 @@
 \RequirePackage[automake,nonumberlist,acronym,toc,nopostdot,style=super]{glossaries}
 \renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \makeglossaries
+
+\newcommand{\finishWork}{}
 
 \input{cover/assignment}
 \input{cover/transfer}
@@ -65,7 +61,6 @@
 \newcommand*{\centurion}[1]{\gdef\@centurion{#1}}
 
 % thesis specific variables
-
 \newcommand*{\studyprogramme}[1]{\gdef\@studyprogramme{#1}}
 
 \newcommand*{\authoraddress}[1]{\gdef\@authoraddress{#1}}

@@ -1,20 +1,20 @@
 \usepackage{blindtext}
-\usepackage{xcolor}
 \usepackage{pdfcomment}
 \usepackage{datetime}
 
-% Text-to-highlight comment
-\NewDocumentCommand{\todo}{O{} m}{
+% Text-to-highlight comment color
+\NewDocumentCommand{\todo}{O{} m O{yellow}}{
     \ifthenelse{\isempty{#1}}
-        {\pdfcomment[icon=Note]{#2}}
-        {\pdfmarkupcomment[markup=Highlight, icon=Note, color=yellow]{#1}{#2}}
-    \PackageWarning{Internal}{#1}
+        {\pdfcomment[icon=Note,color=#3]{#2} \hspace{0.5cm} }
+        {\pdfmarkupcomment[markup=Highlight, icon=Note, color=#3]{#1}{#2}}
+    \PackageWarning{Internal}{#2}
 }
 
-\NewDocumentCommand{\fixme}{O{} m}{
+% Text-to-highlight comment color
+\NewDocumentCommand{\fixme}{O{} m O{red}}{
     % Error needs to be inside condition or else markup comment will not render
     \ifthenelse{\isempty{#1}}
-        {\pdfcomment[icon=Note, color=red]{#2} \PackageError{Internal}{#2}{}}
-        {\pdfmarkupcomment[markup=Highlight, icon=Note, color=red]{#1}{#2}\PackageError{Internal}{#2}{}}
+        {\pdfcomment[icon=Note, color=#3]{#2} \hspace{0.5cm} \PackageError{Internal}{#2}{}}
+        {\pdfmarkupcomment[markup=Highlight, icon=Note, color=#3]{#1}{#2}\PackageError{Internal}{#2}{}}
 }
 
