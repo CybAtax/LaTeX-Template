@@ -24,8 +24,7 @@
 \patchcmd{\lsthk@SelectCharTable}{\lst@ifbreaklines\lst@Def{`)}{\lst@breakProcessOther)}\fi}{}{}{}
 \makeatother
 
-% language definition: Java (example)
-\lstdefinestyle{Java}{
+\lstset{
   % Styling
   captionpos=b,
   columns=fullflexible,
@@ -48,9 +47,11 @@
   % Line numbers
   numbers=left,
   numbersep=5pt,
-  % Additional keywords
+}
+
+% language definition: Java (example)
+\lstdefinestyle{java}{
   otherkeywords={var},
-  % Literates
   literate=
   % Curly braces
   {\{}{{\CodeSymbol{\{}}}1
@@ -65,26 +66,29 @@
   {>}{{\CodeSymbol{$>$}}}1
   {=}{{\CodeSymbol{$=$}}}1
   {;}{{\CodeSymbol{$;$}}}1
+  {@}{{\textcolor{pred}{@}}}1
 }
-\lstset{style=Java}
-\lstset{texcl=true}
 
-\lstdefinelanguage{XML}
+\lstdefinelanguage{xml}
 {
-  morestring=[b]",
-  morestring=[s]{>}{<},
-  morecomment=[s]{<?}{?>},
-  morecomment=[s]{<!--}{-->},
-  stringstyle=\color{black},
-  identifierstyle=\color{darkblue},
-  keywordstyle=\color{cyan}
+  % Colors
+  keywordstyle=\color{cyan},
+  % Styling
+  morekeywords={xmlns,type, xsi},
+  morestring=[s]{"}{"},
+  morecomment=[s]{?}{?},
+  moredelim=**[s][\color{blue}]{<}{>},
+  moredelim=**[s][\color{black}]{>}{<},
+  moredelim=**[s][\color{gray}]{<!--}{-->},
+  moredelim=**[s][\color{codegreen}]{"}{"},
+  moredelim=**[s][\color{pred}]{\$\{}{\}},
 }
 
 % listing listing
 \NewDocumentCommand{\beginListing}{ m m m }{
-  \begin{lstlisting}[language=#1, caption=#2, label=lst:#3,
-        % morecomment appears to only work in this scenario but not the style
-        morecomment={[n][\color{codegreen}]{/**}{*/}}, % Javadoc
-        morecomment={[n][\color{pred}]{@}{\^^M}} % Annotation (Java)
+\begin{lstlisting}[language=#1, caption=#2, label=lst:#3,
+    % morecomment appears to only work in this scenario but not the style
+    morecomment={[n][\color{codegreen}]{/**}{*/}}, % Javadoc
+    morecomment={[n][\color{pred}]{@}{\^^M}} % Annotation (Java)
   ]
 }
