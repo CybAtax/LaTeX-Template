@@ -9,7 +9,20 @@
 \renewcommand*{\lstlistingname}{Code}
 \renewcommand*{\lstlistlistingname}{Codeverzeichnis}
 
-\newcommand{\code}[1]{\colorbox{codebackgroundcolor}{#1}}
+% "\code"-Box
+\usepackage{soul}
+
+\newcommand{\code}[2][codebackgroundcolor]{%
+  \begingroup
+  \sethlcolor{#1}%
+  \hl{#2}%
+  \endgroup
+}
+
+\makeatletter
+% fix linebreak=true breaking literate of ')', see: https://tex.stackexchange.com/questions/69472/closing-parenthesis-as-delimiter-not-matched-when-breaklines-true
+\patchcmd{\lsthk@SelectCharTable}{\lst@ifbreaklines\lst@Def{`)}{\lst@breakProcessOther)}\fi}{}{}{}
+\makeatother
 
 % language definition: Java (example)
 \lstdefinestyle{Java}{
