@@ -12,14 +12,17 @@
 % "\code"-Box
 \usepackage{soul}
 
-\newcommand{\ctext}[2]{%
+\newcommand{\code}[2][codebackgroundcolor]{%
   \begingroup
   \sethlcolor{#1}%
   \hl{#2}%
   \endgroup
 }
 
-\newcommand{\code}[1]{\ctext{codebackgroundcolor}{#1}}
+\makeatletter
+% fix linebreak=true breaking literate of ')', see: https://tex.stackexchange.com/questions/69472/closing-parenthesis-as-delimiter-not-matched-when-breaklines-true
+\patchcmd{\lsthk@SelectCharTable}{\lst@ifbreaklines\lst@Def{`)}{\lst@breakProcessOther)}\fi}{}{}{}
+\makeatother
 
 % language definition: Java (example)
 \lstdefinestyle{Java}{
