@@ -10,11 +10,12 @@
 \usepackage{svg}
 \usepackage{amsmath}
 \usepackage{float}
+
 %(position) imgLink caption (subcaption) label
-\NewDocumentCommand{\svg}{o m m o m}{
-\figureStart[#1]{#5}
-    \includesvg[inkscapelatex=false]{{#2}}
-\figureEnd{#3}[{#4}]
+\NewDocumentCommand{\svg}{o m O{1} m o m}{
+\figureStart[#1]{#6}
+    \includesvg[inkscapelatex=false, scale=#3]{{#2}}
+\figureEnd{#4}[{#5}]
 }
 
 \usepackage{wrapfig}

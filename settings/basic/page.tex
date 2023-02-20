@@ -22,7 +22,8 @@
 \let\origBackmatter\backmatter
 \renewcommand{\backmatter}{\clearpage\pagenumbering{Roman}\origBackmatter}
 
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
-
-\hfuzz=100pt % To suppress overfull / underfull hbox warnings
