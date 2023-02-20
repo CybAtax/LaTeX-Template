@@ -6,7 +6,7 @@ Long code snippet: \code{Lorem ipsum dolor sit amet, consetetur sadipscing elitr
 
 Long code snippet consting of only one word: \code{GSxEPWkSCi5uYwb7dkayqoOo1NsncRzvVpGxJbYv2BGSxEPWkSCi5uYwb7dkayqoOo1NsncRzvVpGxJbYv2BGSxEPWkSCi5uYwb7dkayqoOo1NsncRzvVpGxJbYv2B}
 
-\beginListing{Java}{Application}{example-lst-1}
+\beginListing{java}{Application}{example-lst-1}
 package de.nak.template;
 
 /**
@@ -24,4 +24,35 @@ public class Application {
     }
 
 }
+\end{lstlisting}
+
+\begin{lstlisting}[language=XML,caption={Beispiel-XML (Auszüge aus der Datei \code{catalog.xml})}]
+<?xml version="1.0"?>
+<catalog>
+<book id="bk101">
+<!-- a very good book -->
+<author>Gambardella, Matthew</author>
+<title>XML Developer's Guide</title>
+<genre>Computer</genre>
+<price>44.95</price>
+<publish_date>2000-10-01</publish_date>
+<description>An in-depth look at creating applications
+with XML.</description>
+</book>
+</catalog>
+\end{lstlisting}
+
+\begin{lstlisting}[language=xml,caption={Beispiel-XML 2}]
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://maven.apache.org/POM/4.0.0"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>nationale.company</groupId>
+<artifactId>artifact</artifactId>
+<version>${project.version}</version>
+
+</project>
+
 \end{lstlisting}
